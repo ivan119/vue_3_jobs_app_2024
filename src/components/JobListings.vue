@@ -28,7 +28,7 @@ onMounted(async () => {
   <section class="bg-blue-50 px-4 py-10">
     <div class="container-xl lg:container m-auto text-center">
       <h2 class="text-3xl font-bold text-green-500 mb-6">Browse Jobs</h2>
-      <div v-if="state.isLoading" class="text-clip py-6">
+      <div v-if="state.isLoading" class="text-center py-6">
         <PulseLoader :loading="state.isLoading" />
       </div>
       <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-6">
