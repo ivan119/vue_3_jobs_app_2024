@@ -195,62 +195,6 @@
         "contactEmail": "foboleca@mailinator.com",
         "contactPhone": "+1 (188) 221-4608"
       }
-    },
-    {
-      "id": "37c9",
-      "type": "Full-Time",
-      "title": "Benjamin Justice",
-      "description": "Maiores iste non occ",
-      "salary": "$80K - $90K",
-      "location": "Molestiae consectetu",
-      "company": {
-        "name": "Bass Ochoa Inc",
-        "description": "Amet fuga Lorem mo",
-        "contactEmail": "rytiqi@mailinator.com",
-        "contactPhone": "+1 (208) 771-1907"
-      }
-    },
-    {
-      "id": "0d57",
-      "type": "Internship",
-      "title": "Yardley Shields",
-      "description": "At occaecat quia duc",
-      "salary": "$90K - $100K",
-      "location": "Consequatur Debitis",
-      "company": {
-        "name": "Carr and Perkins LLC",
-        "description": "Doloremque doloremqu",
-        "contactEmail": "faqys@mailinator.com",
-        "contactPhone": "+1 (781) 843-5795"
-      }
-    },
-    {
-      "id": "523d",
-      "type": "Internship",
-      "title": "Nathan Craft",
-      "description": "Nulla elit ab aliqu",
-      "salary": "Under $50K",
-      "location": "Laboriosam exceptur",
-      "company": {
-        "name": "Dillon and Tanner Traders",
-        "description": "Ullam numquam aut se",
-        "contactEmail": "xotikeneju@mailinator.com",
-        "contactPhone": "+1 (394) 233-2334"
-      }
-    },
-    {
-      "id": "1bd5",
-      "type": "Remote",
-      "title": "Cameron Knowles",
-      "description": "Quam ut anim non ips",
-      "salary": "$175K - $200K",
-      "location": "In in aliqua Maxime",
-      "company": {
-        "name": "Hodge Raymond Associates",
-        "description": "Quas tempora dolor N",
-        "contactEmail": "xyty@mailinator.com",
-        "contactPhone": "+1 (885) 966-5181"
-      }
     }
   ]
 }
