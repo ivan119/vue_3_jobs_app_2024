@@ -1,10 +1,12 @@
 <script setup>
-import { reactive } from 'vue'
+import { ref, watchEffect } from 'vue'
 import axios from 'axios'
 import router from '@/router'
 import { useToast } from 'vue-toastification'
+import { useRoute } from 'vue-router'
 
-const form = reactive({
+// Define the form and its default structure
+const defaultForm = {
   type: 'Full-Time',
   title: '',
   description: '',
@@ -16,17 +18,50 @@ const form = reactive({
     contactEmail: '',
     contactPhone: '',
   },
-})
+}
+
+// Reactive form data
+const form = ref({ ...defaultForm })
+
+// Function to reset form to default
+const resetForm = () => {
+  form.value = { ...defaultForm }
+}
 const toast = useToast()
-const submitJob = async () => {
+const submitJob = async jobId => {
   try {
-    const response = await axios.post('/api/jobs/', form)
-    toast.success('Job Added Successfully')
+    const response = jobId
+      ? await axios.put(`/api/jobs/${jobId}`, form.value)
+      : await axios.post('/api/jobs/', form.value)
+    toast.success(jobId ? 'Job Successfully Edited' : 'Job Added Successfully')
     await router.push(`/jobs/${response.data.id}`)
   } catch (e) {
-    toast.error('Error creating job', e)
+    const message = e?.response?.data?.message || 'Something went wrong'
+    toast.error(
+      jobId ? 'An Error Occurred While Editing Job Form' : 'Error creating job',
+      message,
+    )
   }
 }
+const getJobForEdit = async jobId => {
+  try {
+    const response = await axios.get(`/api/jobs/${jobId}`)
+    form.value = response.data
+  } catch (e) {
+    toast.error('An Error Occurs While Fetching Edit Job Form', e)
+  }
+}
+const route = useRoute()
+// Watch for reactive changes in route params with watchEffect
+watchEffect(async () => {
+  if (route.params.id) {
+    // Edit mode: load the job data
+    await getJobForEdit(route.params.id)
+  } else {
+    // Create mode: reset the form
+    resetForm()
+  }
+})
 </script>
 
 <template>
@@ -35,8 +70,10 @@ const submitJob = async () => {
       <div
         class="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0"
       >
-        <form @submit.prevent="submitJob">
-          <h2 class="text-3xl text-center font-semibold mb-6">Add Job</h2>
+        <form @submit.prevent="submitJob(form.id)">
+          <h2 class="text-3xl text-center font-semibold mb-6">
+            {{ route.params.id ? 'Edit' : 'Add' }} Job
+          </h2>
 
           <div class="mb-4">
             <label for="type" class="block text-gray-700 font-bold mb-2"
@@ -191,7 +228,7 @@ const submitJob = async () => {
               class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Add Job
+              {{ route.params.id ? 'Update' : 'Add' }} Job
             </button>
           </div>
         </form>
