@@ -223,6 +223,34 @@
         "contactEmail": "faqys@mailinator.com",
         "contactPhone": "+1 (781) 843-5795"
       }
+    },
+    {
+      "id": "523d",
+      "type": "Internship",
+      "title": "Nathan Craft",
+      "description": "Nulla elit ab aliqu",
+      "salary": "Under $50K",
+      "location": "Laboriosam exceptur",
+      "company": {
+        "name": "Dillon and Tanner Traders",
+        "description": "Ullam numquam aut se",
+        "contactEmail": "xotikeneju@mailinator.com",
+        "contactPhone": "+1 (394) 233-2334"
+      }
+    },
+    {
+      "id": "1bd5",
+      "type": "Remote",
+      "title": "Cameron Knowles",
+      "description": "Quam ut anim non ips",
+      "salary": "$175K - $200K",
+      "location": "In in aliqua Maxime",
+      "company": {
+        "name": "Hodge Raymond Associates",
+        "description": "Quas tempora dolor N",
+        "contactEmail": "xyty@mailinator.com",
+        "contactPhone": "+1 (885) 966-5181"
+      }
     }
   ]
 }
